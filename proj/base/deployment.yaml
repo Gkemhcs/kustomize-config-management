@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+metadata:
+   name: deployment
+kind: Deployment
+spec:
+   replicas: 2
+   selector: 
+
+     matchLabels:
+       pod : base
+   template:
+    metadata:
+     labels:
+       pod: base
+    spec:
+      containers:
+      - name: cnt-1
+        image: gcr.io/gkemhcs-eswari/posts
+        ports:
+        - containerPort: 8080 

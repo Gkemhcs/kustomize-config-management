@@ -1,0 +1,29 @@
+ 
+resources:
+- ../base
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: team-three
+nameSuffix: team3
+replicas:
+- name: deployment
+  count: 3
+commonAnnotations:
+   type: kustomize
+   version: 3.0.0
+patches:
+  - patch: |-
+     - op: replace
+       path: spec/type
+       value: LoadBalancer
+     - op: add
+       path: metadata.labels
+       value:
+         type: loadbalancer
+         isinternal: true
+    target:
+      version: v1
+      kind: Deployment
+      annotationSelector: "type=kustomize"
+      name: department-deployment-team3
+   

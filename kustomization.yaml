@@ -1,0 +1,7 @@
+resources:
+- proj/team1
+- proj/team2
+- proj/team3
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namePrefix: department
