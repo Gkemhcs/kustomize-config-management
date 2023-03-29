@@ -25,5 +25,5 @@ patches:
       version: v1
       kind: Deployment
       annotationSelector: "type=kustomize"
-      name: department-deployment-team3
+      name: departmentdeploymentteam3
    
